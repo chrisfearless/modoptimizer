@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .mod-image {
+            float: left;
+            padding: 1em;
+        }
+        .mod-details {
+            padding: 1em;
+        }
+        .mod-character-name {
+            font-size: small;
+            font-weight: bold;
+        }
+        .mod-total-score {
+            font-size: small;
+        }
+        .primary-stat, .secondary-stat {
+            font-size: small;
+        }
+        .primary-stat {
+            font-weight: bold;
+        }
+        .secondary-stats {
+            display: table;
+        }
+        .secondary-stat {
+            display: table-row;
+        }
+        .sec-stat-value, .sec-stat-type, .sec-stat-score {
+            display: table-cell;
+        }
+        .sec-stat-value {
+            text-align: right;
+            padding-right: 0.2em;
+        }
+        .sec-stat-score {
+            text-align: right;
+            padding-left: 0.2em;
+        }
+    </style>
+    <title>Mod Manager</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {{range .Mods}}
+        <div class="col-4">
+            <div class="mod-image">
+                <img src="resources/mod_{{.Set}}_{{.Slot}}.png"/>
+            </div>
+            <div class="mod-details">
+                <div class="mod-character-name">
+                    <span>{{.CharacterName}}</span>
+                </div>
+                <div class="mod-total-score">
+                    <span>{{.TotalScore}}</span>
+                </div>
+                <div class="primary-stat">
+                   <span class="primary-stat-value">{{.PrimaryStat.Value}}</span>
+                   <span class="primary-stat-type">{{.PrimaryStat.Type}}</span>
+                </div>
+                <div class="secondary-stats">
+                    {{range .SecondaryStats}}
+                    <div class="secondary-stat">
+                        <div class="sec-stat-value">{{.Value}}</div>
+                        <div class="sec-stat-type">{{.Type}}</div>
+                        <div class="sec-stat-score">{{.Score}}</div>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+        {{end}}
+    </div>
+</div>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<script type="application/javascript">
+    $(document).ready(function(){
+    });
+</script>
+</body>
+</html>
